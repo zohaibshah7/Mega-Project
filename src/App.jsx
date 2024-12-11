@@ -21,7 +21,11 @@ function App() {
       .finally(() => setLoading(false));
   }, []);
 
-  return <></>;
+  return !loading ? (
+    <div>
+      
+    </div>
+  ) : null
 }
 
 export default App;
