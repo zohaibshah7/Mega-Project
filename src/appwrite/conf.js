@@ -1,4 +1,4 @@
-import config from "../config/config";
+import config from "../config/config.js";
 import { Client, ID, Databases, Storage, Query } from "appwrite";
 
 export class Service {
@@ -16,7 +16,7 @@ export class Service {
 
   async createPost({ title, slug, content, featuredImage, status, userId }) {
     try {
-      return this.databases.createDocument(
+      return await this.databases.createDocument(
         config.appwriteDatabaseId,
         config.appwriteCollectionId,
         slug,
@@ -92,6 +92,7 @@ export class Service {
   }
 
   // file upload service
+
   async uploadFile(file) {
     try {
       return await this.bucket.createFile(
